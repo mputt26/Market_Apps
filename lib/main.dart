@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'App Fluterku',
-      initialRoute: '/',
+      initialRoute: '/home',
       routes: {
         '/': (context) => SplashScreenPage(),
         '/home': (context) => HomePage(),
