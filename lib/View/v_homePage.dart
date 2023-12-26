@@ -1,5 +1,8 @@
+// home_page.dart
+
 import 'package:flutter/material.dart';
 import 'package:market_apps/View/v_shoppingPage.dart';
+import 'package:market_apps/View/widget/bottom_navigation_bar.dart';
 import 'package:market_apps/View/widget/card_home.dart';
 import 'package:market_apps/View/widget/carousell_banner.dart';
 import 'package:market_apps/View/widget/category_list.dart';
@@ -107,46 +110,9 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 16, left: 16, right: 16),
-        child: ClipRect(
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.green[200],
-                borderRadius: BorderRadius.all(Radius.circular(50)),
-              ),
-              child: BottomNavigationBar(
-                type: BottomNavigationBarType.fixed,
-                currentIndex: _selectedIndex,
-                onTap: _onItemTapped,
-                selectedItemColor: Colors.green[700],
-                unselectedItemColor: Colors.white,
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                items: [
-                  BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.home),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.shopping_cart),
-                    label: 'Shopping',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.square_list),
-                    label: 'Order',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(CupertinoIcons.person),
-                    label: 'Account',
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,
       ),
     );
   }
