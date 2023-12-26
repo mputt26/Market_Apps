@@ -1,49 +1,160 @@
 import 'package:flutter/material.dart';
+import 'package:market_apps/View/v_shoppingPage.dart';
+import 'package:market_apps/View/widget/card_home.dart';
+import 'package:market_apps/View/widget/category_list.dart';
 import 'package:market_apps/style.dart';
+import 'package:flutter/cupertino.dart';
+import 'dart:ui';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key});
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.green[400],
-        toolbarHeight: 90,
-        shape: ContinuousRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(90),
-            bottomRight: Radius.circular(90),
-          ),
-        ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        toolbarHeight: 150,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Hi Putri', style: tittleHome.copyWith(fontSize: 20)),
-                Text('Selamat datang!',
-                    style: tittleHome.copyWith(fontSize: 15)),
-              ],
+            Text('Hi Putri', style: tittleHome.copyWith(fontSize: 26)),
+            Text('Selamat datang!',
+                style: subtittleHome.copyWith(fontSize: 19)),
+            SizedBox(height: 5),
+            Text(
+              'Deliveri to:',
+              style: subDeliver,
             ),
-            Container(
-              margin: EdgeInsets.only(right: 16),
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle, color: Colors.green[200]),
-              child: Icon(
-                Icons.person,
-                color: Colors.white,
+            GestureDetector(
+              onTap: () {
+                // Navigasi ke halaman baru saat teks diklik
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => NewPage()),
+                );
+              },
+              child: Row(
+                children: [
+                  Text(
+                    'D5 House (Kos Muslimah)',
+                    style: normal,
+                  ),
+                  SizedBox(width: 10),
+                  Icon(
+                    CupertinoIcons.chevron_compact_down,
+                    color: Colors.black,
+                  )
+                ],
               ),
             ),
           ],
         ),
+        actions: [
+          CupertinoButton(
+            onPressed: () {},
+            child: Icon(Icons.search, size: 30, color: Colors.green[400]),
+          ),
+          CupertinoButton(
+            onPressed: () {},
+            child:
+                Icon(Icons.notifications, size: 30, color: Colors.green[400]),
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CardHome(),
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Text('Category', style: tittleHome.copyWith(fontSize: 20)),
+            ),
+            SizedBox(height: 8),
+            CategoryList(),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 16, left: 16, right: 16),
+        child: ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.green[200],
+                borderRadius: BorderRadius.all(Radius.circular(50)),
+              ),
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                currentIndex: _selectedIndex,
+                onTap: _onItemTapped,
+                selectedItemColor: Colors.green[700],
+                unselectedItemColor: Colors.white,
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                items: [
+                  BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.home),
+                    label: 'Home',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.shopping_cart),
+                    label: 'Shopping',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.square_list),
+                    label: 'Order',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.person),
+                    label: 'Account',
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      // Navigasi ke halaman yang sesuai dengan item yang diklik
+      switch (index) {
+        case 1:
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ShoppingPage()));
+          break;
+        // Tambahkan case untuk item lainnya jika diperlukan
+      }
+    });
+  }
+}
+
+// Contoh halaman baru
+class NewPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('New Page'),
       ),
       body: Center(
-        child: Text('Splash Screen'),
+        child: Text('This is a new page.'),
       ),
     );
   }

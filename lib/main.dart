@@ -14,11 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'App Fluterku',
-      initialRoute: '/home',
+      initialRoute: '/',
       routes: {
         '/': (context) => SplashScreenPage(),
         '/home': (context) => HomePage(),
-        // Tambahkan routes lain jika diperlukan
       },
     );
   }
