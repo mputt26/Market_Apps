@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:market_apps/View/v_shoppingPage.dart';
 import 'package:market_apps/View/widget/card_home.dart';
+import 'package:market_apps/View/widget/carousell_banner.dart';
 import 'package:market_apps/View/widget/category_list.dart';
 import 'package:market_apps/style.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,6 +16,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
+  List<String> carouselImages = [
+    'assets/images/banner1.jpg',
+    'assets/images/banner2.jpg',
+    'assets/images/banner3.jpg',
+    'assets/images/banner4.jpg',
+    'assets/images/banner5.jpg',
+    'assets/images/banner6.jpg',
+    'assets/images/banner7.jpg',
+    'assets/images/banner8.jpg',
+    'assets/images/banner9.jpg',
+    // Add more local image paths as needed
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +95,15 @@ class _HomePageState extends State<HomePage> {
               child: Text('Category', style: tittleHome.copyWith(fontSize: 20)),
             ),
             SizedBox(height: 8),
-            CategoryList(),
+            Card(
+              color: Colors.green[100],
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CategoryList(),
+              ),
+            ),
+            SizedBox(height: 10),
+            CarouselBanner(images: carouselImages),
           ],
         ),
       ),

@@ -18,6 +18,15 @@ class CardHome extends StatelessWidget {
             children: [
               Row(
                 children: [
+                  Icon(CupertinoIcons.creditcard_fill),
+                  SizedBox(width: 10),
+                  Column(
+                    children: [
+                      Text('saldo', style: normal),
+                      Text('\$243'),
+                    ],
+                  ),
+                  SizedBox(width: 25),
                   Icon(CupertinoIcons.tickets),
                   SizedBox(width: 10),
                   Column(
@@ -29,11 +38,13 @@ class CardHome extends StatelessWidget {
                       Text('A-Poin')
                     ],
                   ),
-                  // SizedBox(height: 30, child: Text('data'))
+                  Spacer(),
+                  Icon(
+                    CupertinoIcons.barcode_viewfinder,
+                    size: 30,
+                  )
                 ],
               ),
-              // SizedBox(height: 8),
-              // Add other widgets or content as needed
             ],
           ),
         ),
