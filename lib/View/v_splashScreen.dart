@@ -1,10 +1,14 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:market_apps/View/v_homePage.dart';
+import 'package:market_apps/ViewModel/vm_product.dart';
+import 'package:market_apps/ViewModel/vm_product2.dart';
+import 'package:market_apps/ViewModel/vm_product3.dart';
 import 'package:market_apps/style.dart';
 
 class SplashScreenPage extends StatefulWidget {
   const SplashScreenPage({Key? key}) : super(key: key);
+
   @override
   _SplashScreenPageState createState() => _SplashScreenPageState();
 }
@@ -18,11 +22,19 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   }
 
   openSplashScreen() async {
-    var durasiSplash = const Duration(seconds: 5);
+    final HomeViewModel viewModel = HomeViewModel();
+    final HomeViewModel2 viewModel2 = HomeViewModel2();
+    final HomeViewModel3 viewModel3 = HomeViewModel3();
+
+    var durasiSplash = const Duration(seconds: 3);
     return Timer(durasiSplash, () {
       //pindah ke halaman home
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
-        return HomePage();
+        return HomePage(
+          viewModel: viewModel,
+          viewModel2: viewModel2,
+          viewModel3: viewModel3,
+        );
       }));
     });
   }
