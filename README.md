@@ -1,6 +1,6 @@
-# market_apps
+# Grocify Store
 
-A new Flutter project.
+Grocify Store adalah sebuah aplikasi supermarket online yang memudahkan pengguna untuk berbelanja kebutuhan sehari-hari secara praktis dan efisien
 
 ## Getting Started
 
