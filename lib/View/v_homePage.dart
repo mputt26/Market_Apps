@@ -313,10 +313,23 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _onItemTapped(int index) {
+    final HomeViewModel viewModel = HomeViewModel();
+    final HomeViewModel2 viewModel2 = HomeViewModel2();
+    final HomeViewModel3 viewModel3 = HomeViewModel3();
     setState(() {
       _selectedIndex = index;
       // Navigasi ke halaman yang sesuai dengan item yang diklik
       switch (index) {
+        case 0:
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => HomePage(
+                        viewModel: viewModel,
+                        viewModel2: viewModel2,
+                        viewModel3: viewModel3,
+                      )));
+          break;
         case 1:
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => ShoppingPage()));
