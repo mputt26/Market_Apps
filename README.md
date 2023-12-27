@@ -1,16 +1,12 @@
 # Grocify Store
 
-Grocify Store adalah sebuah aplikasi supermarket online yang memudahkan pengguna untuk berbelanja kebutuhan sehari-hari secara praktis dan efisien
+Grocify Store adalah sebuah aplikasi berbasis andorid supermarket online yang memudahkan pengguna untuk berbelanja kebutuhan sehari-hari secara praktis dan efisien
 
-## Getting Started
+Proyek ini diinisiasi dan dikerjakan sebagai bagian dari upaya pengembangan keterampilan pribadi, dimana waktu luang digunakan untuk mengeksplorasi konsep dan teknologi baru. Meskipun tidak ada tugas formal yang diberikan, proyek ini bertujuan sebagai latihan mandiri untuk meningkatkan pemahaman dan penerapan keterampilan yang telah diperoleh sebelumnya, menciptakan kesempatan untuk eksperimen kreatif, serta memperluas wawasan terkait dengan bidang tertentu
 
-This project is a starting point for a Flutter application.
+## Tools
+Aplikasi ini dibuat dengan menggunakan bahasa pemrograman Dart
+Proyek ini menggunakan tools :
+- Visual Studio Code
+- GitHub
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
