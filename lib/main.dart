@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'App Fluterku',
-      initialRoute: '/',
+      title: 'Grocify Market',
+      initialRoute: '/shop',
       routes: {
         '/': (context) => SplashScreenPage(),
         '/home': (context) => HomePage(
