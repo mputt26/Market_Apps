@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:market_apps/View/v_homePage.dart';
 import 'package:market_apps/View/widget/bottom_navigation_bar.dart';
+import 'package:market_apps/View/widget/card_shopping.dart';
 import 'package:market_apps/ViewModel/vm_product.dart';
 import 'package:market_apps/ViewModel/vm_product2.dart';
 import 'package:market_apps/ViewModel/vm_product3.dart';
@@ -52,7 +53,9 @@ class _ShoppingPageState extends State<ShoppingPage> {
                   ),
                 ],
               ),
-            )
+            ),
+            // --------------- card list shopping -----------------
+            CardShoppingList(),
           ],
         ),
       ),
